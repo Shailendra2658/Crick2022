@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryColor"
+android:paddingTop="40dp"
+        tools:context=".SelectBowler">
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="80dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentLeft="true"
+                android:text="Select Bowler"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/textView1"
+                android:layout_alignLeft="@+id/textView1"
+                android:layout_alignParentBottom="true">
+
+                <CheckBox
+                    android:id="@+id/bowller"
+                    android:layout_width="122dp"
+                    android:layout_height="121dp"
+                    android:background="@drawable/one"
+                    android:button="@null" />
+
+                <CheckBox
+                    android:id="@+id/bowller2"
+                    android:layout_width="122dp"
+                    android:layout_height="121dp"
+                    android:button="@null"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/three" />
+
+                <CheckBox
+                    android:id="@+id/bowller1"
+                    android:layout_width="122dp"
+                    android:layout_height="121dp"
+                    android:button="@null"
+                    android:layout_centerHorizontal="true"
+                    android:clickable="true"
+                    android:background="@drawable/two" />
+
+                <CheckBox
+                    android:id="@+id/bowller5"
+                    android:layout_width="122dp"
+                    android:layout_height="121dp"
+                    android:button="@null"
+                    android:layout_alignTop="@id/bowller3"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/six" />
+
+                <CheckBox
+                    android:id="@+id/bowller3"
+                    android:layout_width="122dp"
+                    android:layout_height="121dp"
+                    android:button="@null"
+                    android:layout_below="@id/bowller"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="40.0dip"
+                    android:background="@drawable/four" />
+
+                <CheckBox
+                    android:id="@+id/bowller4"
+                    android:layout_width="122dp"
+                    android:layout_height="121dp"
+                    android:button="@null"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignLeft="@id/bowller3"
+                    android:layout_alignTop="@id/bowller5"
+                    android:background="@drawable/five" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Select Level"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/textView2"
+                android:layout_alignTop="@id/relativeLayout1"
+                android:layout_alignRight="@id/textView2"
+                android:layout_marginTop="44.0dip">
+
+                <RadioButton
+                    android:id="@+id/radio0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Practice  "
+                    android:textColor="#ffffff"
+                    android:textSize="30.0sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20.0dip"
+                    android:layout_weight="2.0"
+                    android:text="Mature "
+                    android:textColor="#ffffff"
+                    android:textSize="30.0sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radio2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20.0dip"
+                    android:layout_weight="1.0"
+                    android:text="Professional"
+                    android:textColor="#ffffff"
+                    android:textSize="30.0sp"
+                    android:textStyle="bold" />
+
+            </RadioGroup>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
