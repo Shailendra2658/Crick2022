@@ -10,13 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cricket2022">
         <activity
-            android:name=".SelectBowler"
-            android:screenOrientation="landscape"
+            android:name=".ScoreBoardScreen"
             android:exported="false" />
+        <activity
+            android:name=".EnterOvers"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".EnterName"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".SelectBowler"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".DashBoardActivity"
             android:exported="true"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".SplashScreen"
             android:exported="true"

@@ -11,16 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/primaryColor"
-android:paddingTop="40dp"
         tools:context=".SelectBowler">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:weightSum="2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
 
         <LinearLayout
-            android:layout_width="400dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="80dp"
             android:orientation="vertical"
+            android:layout_weight="1"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -29,12 +37,12 @@ android:paddingTop="40dp"
                 android:id="@id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_alignParentLeft="true"
+                android:gravity="center"
                 android:text="Select Bowler"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ffffff"
-                android:textSize="30sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,63 +51,90 @@ android:paddingTop="40dp"
                 android:id="@+id/relativeLayout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_below="@+id/textView1"
                 android:layout_alignLeft="@+id/textView1"
-                android:layout_alignParentBottom="true">
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:layout_margin="20dp"
+                android:weightSum="2">
 
-                <CheckBox
-                    android:id="@+id/bowller"
-                    android:layout_width="122dp"
-                    android:layout_height="121dp"
-                    android:background="@drawable/one"
-                    android:button="@null" />
+                <LinearLayout
+                    android:id="@+id/linear1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
-                <CheckBox
-                    android:id="@+id/bowller2"
-                    android:layout_width="122dp"
-                    android:layout_height="121dp"
-                    android:button="@null"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/three" />
+                    <CheckBox
+                        android:id="@+id/bowller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
 
-                <CheckBox
-                    android:id="@+id/bowller1"
-                    android:layout_width="122dp"
-                    android:layout_height="121dp"
-                    android:button="@null"
-                    android:layout_centerHorizontal="true"
-                    android:clickable="true"
-                    android:background="@drawable/two" />
+                        android:background="@drawable/one"
+                        android:button="@null" />
 
-                <CheckBox
-                    android:id="@+id/bowller5"
-                    android:layout_width="122dp"
-                    android:layout_height="121dp"
-                    android:button="@null"
-                    android:layout_alignTop="@id/bowller3"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/six" />
+                    <CheckBox
+                        android:id="@+id/bowller2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
 
-                <CheckBox
-                    android:id="@+id/bowller3"
-                    android:layout_width="122dp"
-                    android:layout_height="121dp"
-                    android:button="@null"
-                    android:layout_below="@id/bowller"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginTop="40.0dip"
-                    android:background="@drawable/four" />
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/three"
+                        android:button="@null" />
 
-                <CheckBox
-                    android:id="@+id/bowller4"
-                    android:layout_width="122dp"
-                    android:layout_height="121dp"
-                    android:button="@null"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignLeft="@id/bowller3"
-                    android:layout_alignTop="@id/bowller5"
-                    android:background="@drawable/five" />
+                    <CheckBox
+                        android:id="@+id/bowller1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/two"
+                        android:button="@null"
+                        android:clickable="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linear1"
+                    android:layout_weight="1">
+
+                    <CheckBox
+                        android:id="@+id/bowller5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+
+                        android:layout_alignTop="@id/bowller3"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/six"
+                        android:button="@null" />
+
+                    <CheckBox
+                        android:id="@+id/bowller3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+
+                        android:layout_below="@id/bowller"
+                        android:layout_alignParentLeft="true"
+                        android:background="@drawable/four"
+                        android:button="@null" />
+
+                    <CheckBox
+                        android:id="@+id/bowller4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+
+                        android:layout_alignLeft="@id/bowller3"
+                        android:layout_alignTop="@id/bowller5"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/five"
+                        android:button="@null" />
+                </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
 
@@ -107,8 +142,7 @@ android:paddingTop="40dp"
             android:id="@+id/linearLayout3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -121,7 +155,7 @@ android:paddingTop="40dp"
                 android:text="Select Level"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="#ffffff"
-                android:textSize="30sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -142,7 +176,7 @@ android:paddingTop="40dp"
                     android:checked="false"
                     android:text="Practice  "
                     android:textColor="#ffffff"
-                    android:textSize="30.0sp"
+                    android:textSize="28sp"
                     android:textStyle="bold" />
 
                 <RadioButton
@@ -153,7 +187,7 @@ android:paddingTop="40dp"
                     android:layout_weight="2.0"
                     android:text="Mature "
                     android:textColor="#ffffff"
-                    android:textSize="30.0sp"
+                    android:textSize="28sp"
                     android:textStyle="bold" />
 
                 <RadioButton
@@ -162,12 +196,13 @@ android:paddingTop="40dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20.0dip"
                     android:layout_weight="1.0"
-                    android:text="Professional"
+                    android:text="Pro"
                     android:textColor="#ffffff"
-                    android:textSize="30.0sp"
+                    android:textSize="28sp"
                     android:textStyle="bold" />
 
             </RadioGroup>
+        </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

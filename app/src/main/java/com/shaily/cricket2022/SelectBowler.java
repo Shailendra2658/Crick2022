@@ -40,7 +40,7 @@ public class SelectBowler extends AppCompatActivity {
         {
             public void onCheckedChanged(RadioGroup paramAnonymousRadioGroup, int paramAnonymousInt)
             {
-                Intent intent = new Intent(SelectBowler.this, DashBoardActivity.class);
+                Intent intent = new Intent(SelectBowler.this, EnterName.class);
 
                 startActivity(intent);
             }
@@ -49,11 +49,27 @@ public class SelectBowler extends AppCompatActivity {
 
     private void selectBowler(CheckBox bowler, Drawable selected, Drawable UnSelected) {
         bowler.setOnCheckedChangeListener((compoundButton, b) -> {
+            resetBowler();
            if(b)
                bowler.setBackground(selected);
            else
                bowler.setBackground(UnSelected);
 
        });
+    }
+
+    private void resetBowler() {
+        binding.bowller.setBackground(getDrawable(R.drawable.one));
+        binding.bowller1.setBackground(getDrawable(R.drawable.two));
+        binding.bowller2.setBackground(getDrawable(R.drawable.three));
+        binding.bowller3.setBackground(getDrawable(R.drawable.four));
+        binding.bowller4.setBackground(getDrawable(R.drawable.five));
+        binding.bowller5.setBackground(getDrawable(R.drawable.six));
+        binding.bowller.setChecked(false);
+        binding.bowller1.setChecked(false);
+        binding.bowller2.setChecked(false);
+        binding.bowller3.setChecked(false);
+        binding.bowller4.setChecked(false);
+        binding.bowller5.setChecked(false);
     }
 }
