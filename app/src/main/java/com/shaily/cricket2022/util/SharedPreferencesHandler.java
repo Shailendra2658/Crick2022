@@ -8,6 +8,20 @@ import android.preference.PreferenceManager;
 
 public class SharedPreferencesHandler {
 
+	public static String KEY_NAME = "KEY_NAME";
+	public static String KEY_OVER = "KEY_OVER";
+	public static String KEY_MODE = "KEY_MODE";
+	public static String KEY_CHALLENGE = "KEY_CHALLENGE";
+	public static String KEY_URI = "KEY_URI";
+	public static String KEY_CUSTOM_URI = "KEY_CUSTOM_URI";
+
+
+
+	public enum Modes{
+		single,
+		Challenge,
+		Team
+	}
 	public static SharedPreferences getSharedPreferences(Context ctx) {
 		return PreferenceManager.getDefaultSharedPreferences(ctx);
 	}
@@ -52,5 +66,14 @@ public class SharedPreferencesHandler {
 		editor.putLong(key, DataToSave);
 		editor.commit();
 	}
-	
+
+	public static void setFloatValues(Context ctx, String key, Float DataToSave) {
+		Editor editor = getSharedPreferences(ctx).edit();
+		editor.putFloat(key, DataToSave);
+		editor.commit();
+	}
+
+	public static float getFloatValues(Context ctx, String key) {
+		return getSharedPreferences(ctx).getFloat(key, 0f);
+	}
 }

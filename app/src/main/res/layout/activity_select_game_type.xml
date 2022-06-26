@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryColor"
+        android:weightSum="2"
+        tools:context=".SelectGameType">
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/viewMain"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/textView2"
+                android:layout_alignBottom="@id/radioButton1"
+                android:layout_margin="10dp"
+                android:text="Single Player "
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#ffffffff"
+                android:textSize="45.0dip" />
+
+            <TextView
+                android:id="@+id/team"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/radioButton2"
+                android:layout_alignLeft="@id/textView2"
+                android:layout_alignBottom="@id/radioButton2"
+                android:layout_margin="10dp"
+                android:text="Team  "
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#ffffffff"
+                android:textSize="45.0dip" />
+
+            <TextView
+                android:id="@id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp"
+                android:text="Challenge Yourself"
+                android:textColor="#ffffffff"
+                android:textSize="45.0dip" />
+
+            <TextView
+                android:id="@+id/demo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="30dp"
+                android:text="Demo"
+                android:textColor="#ffffffff"
+                android:textSize="45.0dip"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/viewMain"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewMain">
+<RadioGroup
+    android:id="@+id/radioGrp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RadioButton
+        android:id="@+id/radioButton1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/radioButton2"
+        android:layout_alignLeft="@+id/radioButton3"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="#ffffffff"
+        android:text="     Max 1"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="#ff07170c"
+        android:textSize="35.0dip" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioButton1"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="#ffffffff"
+        android:text="     Max 8, Min 2"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="#ff07170c"
+        android:textSize="35.0dip" />
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="#ffffffff"
+        android:text="     Max 1"
+        android:textColor="#ff07170c"
+        android:textSize="35.0dip" />
+
+    <RadioButton
+        android:id="@+id/radioButton4"
+        android:layout_width="294.0dip"
+        android:layout_height="85.0dip"
+        android:layout_margin="10dp"
+        android:background="#ffffffff"
+        android:text="     Max 1"
+        android:textColor="#ff07170c"
+        android:textSize="35.0dip"
+        android:visibility="gone" />
+</RadioGroup>
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

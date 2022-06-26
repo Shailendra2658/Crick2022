@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/primaryColor"
-        tools:context=".EnterOvers">
+        tools:context=".SelectChallenge">
 
         <ImageView
             android:id="@+id/next"
@@ -33,7 +33,7 @@
             android:layout_centerVertical="true"
             android:background="@drawable/background"
             android:ems="10"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             android:paddingLeft="60dp"
             android:singleLine="true"
             android:textSize="40dp"
@@ -49,7 +49,7 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:layout_marginTop="-10dp"
-            android:text="Please Enter Valid Numbers of Overs"
+            android:text="Please Enter Valid Score"
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="21sp"
@@ -65,7 +65,7 @@
             android:layout_above="@+id/editTextOver"
             android:layout_alignParentLeft="true"
             android:gravity="center_horizontal"
-            android:text="How many over game?"
+            android:text="How many runs you can score?"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/white"
             android:textSize="40.0sp"
@@ -73,4 +73,5 @@
             app:layout_constraintBottom_toTopOf="@+id/editTextOver"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

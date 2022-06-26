@@ -65,7 +65,7 @@
                     android:layout_weight="1">
 
                     <CheckBox
-                        android:id="@+id/bowller"
+                        android:id="@+id/bowller1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
@@ -80,16 +80,16 @@
                         android:layout_margin="8dp"
 
                         android:layout_alignParentRight="true"
-                        android:background="@drawable/three"
+                        android:background="@drawable/two"
                         android:button="@null" />
 
                     <CheckBox
-                        android:id="@+id/bowller1"
+                        android:id="@+id/bowller3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/two"
+                        android:background="@drawable/three"
                         android:button="@null"
                         android:clickable="true" />
 
@@ -102,37 +102,31 @@
                     android:layout_weight="1">
 
                     <CheckBox
-                        android:id="@+id/bowller5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-
-                        android:layout_alignTop="@id/bowller3"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/six"
-                        android:button="@null" />
-
-                    <CheckBox
-                        android:id="@+id/bowller3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-
-                        android:layout_below="@id/bowller"
-                        android:layout_alignParentLeft="true"
-                        android:background="@drawable/four"
-                        android:button="@null" />
-
-                    <CheckBox
                         android:id="@+id/bowller4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
+                        android:layout_alignTop="@id/bowller4"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/four"
+                        android:button="@null" />
 
-                        android:layout_alignLeft="@id/bowller3"
-                        android:layout_alignTop="@id/bowller5"
-                        android:layout_centerHorizontal="true"
+                    <CheckBox
+                        android:id="@+id/bowller5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_alignParentLeft="true"
                         android:background="@drawable/five"
+                        android:button="@null" />
+
+                    <CheckBox
+                        android:id="@+id/bowller6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/six"
                         android:button="@null" />
                 </LinearLayout>
             </RelativeLayout>

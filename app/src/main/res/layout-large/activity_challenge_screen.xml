@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/primaryColor"
-        tools:context=".ScoreBoardScreen">
+        tools:context=".ChallengeScreen">
 
         <ImageView
             android:id="@+id/restart"
@@ -36,51 +36,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearScore"
+        <TextView
+            android:id="@+id/textViewNeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/viewCenter"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewName">
-
-
-            <TextView
-                android:id="@+id/textViewScr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="Score "
-                android:textColor="@color/white"
-                android:textSize="40sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textViewScore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="0"
-                android:textColor="@color/white"
-                android:textSize="140dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textViewScr" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <View
-            android:id="@+id/viewCenter"
-            android:layout_width="40dp"
-            android:layout_height="1dp"
-            app:layout_constraintBottom_toBottomOf="@+id/view"
+            android:text="You Need"
+            android:textColor="#ffffffff"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/linearScore"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -89,32 +55,130 @@
             android:gravity="left"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/viewCenter"
-            app:layout_constraintTop_toTopOf="@+id/linearScore">
+            app:layout_constraintStart_toEndOf="@+id/textViewNeed"
+            app:layout_constraintTop_toBottomOf="@+id/textViewName">
 
             <TextView
-                android:id="@+id/textViewOvr"
+                android:id="@+id/textViewYou"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Over"
+                android:text="Your Score"
                 android:textColor="#ffffffff"
-                android:textSize="40sp"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/imageViewTarget"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:visibility="gone"
+                android:layout_marginBottom="120dp"
+                android:src="@drawable/target"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textViewYou"
+                app:layout_constraintTop_toBottomOf="@+id/textViewYou"/>
+            <TextView
+                android:id="@+id/textViewUrScr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"
+                android:visibility="visible"
+                android:textColor="#ffffffff"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textViewYou"
+                app:layout_constraintTop_toBottomOf="@+id/textViewYou" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewName">
+
+            <TextView
+                android:id="@+id/textViewScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:textColor="@color/white"
+                android:textSize="140dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewOver"
+                android:id="@+id/textViewRuns"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="0.6"
+                android:layout_marginStart="40dp"
+                android:text="Runs"
                 android:textColor="#ffffffff"
                 android:textSize="60sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textViewOvr"
-                app:layout_constraintTop_toTopOf="@+id/textViewOvr" />
+                app:layout_constraintBottom_toBottomOf="@+id/textViewScore"
+                app:layout_constraintStart_toEndOf="@+id/textViewScore"
+                app:layout_constraintTop_toTopOf="@+id/textViewScore" />
+
+            <TextView
+                android:id="@+id/textViewIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="in"
+                android:visibility="visible"
+                android:textColor="#ffffffff"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewScore"
+                app:layout_constraintStart_toEndOf="@+id/textViewRuns"
+                app:layout_constraintTop_toTopOf="@+id/textViewScore" />
+
+            <TextView
+                android:id="@+id/textViewBalls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="6"
+                android:textColor="#ffffffff"
+                android:textSize="140dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewScore"
+                app:layout_constraintStart_toEndOf="@+id/textViewIn"
+                app:layout_constraintTop_toTopOf="@+id/textViewScore" />
+            <TextView
+                android:id="@+id/textViewBall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="Balls"
+                android:textColor="#ffffffff"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewScore"
+                app:layout_constraintStart_toEndOf="@+id/textViewBalls"
+                app:layout_constraintTop_toTopOf="@+id/textViewScore" />
+            <TextView
+                android:id="@+id/textViewLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="Left"
+                android:visibility="gone"
+                android:textColor="#ffffffff"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewScore"
+                app:layout_constraintStart_toEndOf="@+id/textViewBall"
+                app:layout_constraintTop_toTopOf="@+id/textViewScore" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <VideoView

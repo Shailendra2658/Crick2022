@@ -29,19 +29,18 @@ public class SelectBowler extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_select_bowler);
 
-        selectBowler(binding.bowller, getDrawable(R.drawable.ones), getDrawable(R.drawable.one));
-        selectBowler(binding.bowller1, getDrawable(R.drawable.twos), getDrawable(R.drawable.two));
-        selectBowler(binding.bowller2, getDrawable(R.drawable.threes), getDrawable(R.drawable.three));
-        selectBowler(binding.bowller3, getDrawable(R.drawable.fours), getDrawable(R.drawable.four));
-        selectBowler(binding.bowller4, getDrawable(R.drawable.fives), getDrawable(R.drawable.five));
-        selectBowler(binding.bowller5, getDrawable(R.drawable.sixes), getDrawable(R.drawable.six));
+        selectBowler(binding.bowller1, getDrawable(R.drawable.ones), getDrawable(R.drawable.one));
+        selectBowler(binding.bowller2, getDrawable(R.drawable.twos), getDrawable(R.drawable.two));
+        selectBowler(binding.bowller3, getDrawable(R.drawable.threes), getDrawable(R.drawable.three));
+        selectBowler(binding.bowller4, getDrawable(R.drawable.fours), getDrawable(R.drawable.four));
+        selectBowler(binding.bowller5, getDrawable(R.drawable.fives), getDrawable(R.drawable.five));
+        selectBowler(binding.bowller6, getDrawable(R.drawable.sixes), getDrawable(R.drawable.six));
 
         binding.level.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             public void onCheckedChanged(RadioGroup paramAnonymousRadioGroup, int paramAnonymousInt)
             {
-                Intent intent = new Intent(SelectBowler.this, EnterName.class);
-
+                Intent intent = new Intent(SelectBowler.this, RecordBowling.class);
                 startActivity(intent);
             }
         });
@@ -59,17 +58,17 @@ public class SelectBowler extends AppCompatActivity {
     }
 
     private void resetBowler() {
-        binding.bowller.setBackground(getDrawable(R.drawable.one));
-        binding.bowller1.setBackground(getDrawable(R.drawable.two));
-        binding.bowller2.setBackground(getDrawable(R.drawable.three));
-        binding.bowller3.setBackground(getDrawable(R.drawable.four));
-        binding.bowller4.setBackground(getDrawable(R.drawable.five));
-        binding.bowller5.setBackground(getDrawable(R.drawable.six));
-        binding.bowller.setChecked(false);
+        binding.bowller1.setBackground(getDrawable(R.drawable.one));
+        binding.bowller2.setBackground(getDrawable(R.drawable.two));
+        binding.bowller3.setBackground(getDrawable(R.drawable.three));
+        binding.bowller4.setBackground(getDrawable(R.drawable.four));
+        binding.bowller5.setBackground(getDrawable(R.drawable.five));
+        binding.bowller6.setBackground(getDrawable(R.drawable.six));
         binding.bowller1.setChecked(false);
         binding.bowller2.setChecked(false);
         binding.bowller3.setChecked(false);
         binding.bowller4.setChecked(false);
         binding.bowller5.setChecked(false);
+        binding.bowller6.setChecked(false);
     }
 }

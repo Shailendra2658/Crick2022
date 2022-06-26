@@ -1,8 +1,13 @@
 package com.shaily.cricket2022;
 
 import static android.view.View.VISIBLE;
+import static com.shaily.cricket2022.util.SharedPreferencesHandler.KEY_CHALLENGE;
 import static com.shaily.cricket2022.util.SharedPreferencesHandler.KEY_NAME;
 import static com.shaily.cricket2022.util.SharedPreferencesHandler.KEY_OVER;
+import static com.shaily.cricket2022.util.SharedPreferencesHandler.KEY_URI;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,19 +17,15 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
-import com.shaily.cricket2022.databinding.ActivityScoreBoardScreenBinding;
+import com.shaily.cricket2022.databinding.ActivityChallengeScreenBinding;
+import com.shaily.cricket2022.databinding.ActivitySelectChallengeBinding;
 import com.shaily.cricket2022.util.SharedPreferencesHandler;
 
-import java.text.DecimalFormat;
-
-public class ScoreBoardScreen extends AppCompatActivity {
-    private static final String TAG = "ScoreBoardScreen";
-    private ActivityScoreBoardScreenBinding binding;
-    private float overLeft, overs;
-    private int mainScore;
+public class ChallengeScreen extends AppCompatActivity {
+    private static final String TAG = "ChallengeScreen";
+    private ActivityChallengeScreenBinding binding;
+    private int ballsLeft;
+    private int mainScore, scoreLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class ScoreBoardScreen extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_score_board_screen);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_challenge_screen);
         setValues();
         binding.restart.setOnClickListener(view -> {
             Intent intent = new Intent(this, DashBoardActivity.class);
@@ -47,9 +48,8 @@ public class ScoreBoardScreen extends AppCompatActivity {
         });
 
         binding.tvBowl.setOnClickListener(view -> {
-            binding.textViewOver.setText(String.format("%.1f", overLeft));
-
-            String str = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/Videos/bowl.mp4";
+           // String str = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/Videos/bowl.mp4";
+            String str = SharedPreferencesHandler.getStringValues(this, KEY_URI);
             setVideoOn();
             binding.videoView1.setVideoPath(str);
             binding.videoView1.requestFocus();
@@ -62,68 +62,74 @@ public class ScoreBoardScreen extends AppCompatActivity {
 
         binding.tvZero.setOnClickListener(view -> {
             setVideoOff();
-            overLeft = getRemainingOver();
-            binding.textViewOver.setText(String.format("%.1f", overLeft));
+            binding.textViewBalls.setText(getRemainingBalls()+"");
 
         });
 
         binding.tvOne.setOnClickListener(view -> {
             setVideoOff();
-            overLeft = getRemainingOver();
-            binding.textViewOver.setText(String.format("%.1f", overLeft));
+            binding.textViewBalls.setText(getRemainingBalls()+"");
             setScore(1);
         });
 
         binding.tvFour.setOnClickListener(view -> {
             setVideoOff();
-            overLeft = getRemainingOver();
-            binding.textViewOver.setText(String.format("%.1f", overLeft));
+            binding.textViewBalls.setText(getRemainingBalls()+"");
             setScore(4);
 
         });
 
         binding.tvSix.setOnClickListener(view -> {
             setVideoOff();
-            overLeft = getRemainingOver();
-            binding.textViewOver.setText(String.format("%.1f", overLeft));
+            binding.textViewBalls.setText(getRemainingBalls()+"");
             setScore(6);
         });
 
         binding.tvOut.setOnClickListener(view -> {
             setVideoOff();
-            overLeft = getRemainingOver();
-            binding.textViewOver.setText(String.format("%.1f", overLeft));
+            binding.textViewBalls.setText(getRemainingBalls()+"");
         });
 
         binding.tvWide.setOnClickListener(view -> {
             setVideoOff();
             setScore(1);
         });
+
     }
 
     private void setScore(int score) {
-        if(overLeft<=0 || String.format("%.1f", overLeft).equalsIgnoreCase("0.0"))
+        if(ballsLeft<=0)
             return;
         mainScore = mainScore + score;
-        binding.textViewScore.setText(mainScore+"");
+        binding.textViewUrScr.setText(mainScore+"");
+        scoreLeft = (score<scoreLeft)?scoreLeft - score : 0;
+        if(scoreLeft > 0) {
+            //scoreLeft = scoreLeft - mainScore;
+            binding.textViewScore.setText(scoreLeft+"");
+        } else {
+            scoreLeft = 0;
+            binding.textViewNeed.setText("Your Score");
+            binding.textViewScore.setText(mainScore+"");
+            //binding.textViewBalls.setText();
+            binding.textViewUrScr.setVisibility(View.GONE);
+            binding.textViewYou.setText("Target Achieved");
+            binding.imageViewTarget.setVisibility(VISIBLE);
+            binding.textViewIn.setVisibility(View.GONE);
+            binding.textViewLeft.setVisibility(VISIBLE);
+        }
     }
 
-    private float getRemainingOver() {
-       String s = String.format("%.1f", overLeft);
-        if (s.endsWith(".0") || s.endsWith(".00")) {
-            overLeft = overLeft - 0.50f;
-        } else {
-            overLeft = overLeft - 0.10f;
-        }
-        if (overLeft <=0 || String.format("%.1f", overLeft).equalsIgnoreCase("0.0")) {
+    private int getRemainingBalls() {
+        ballsLeft = ballsLeft-1;
+        if (ballsLeft <=0) {
             new Handler().postDelayed(() -> {
                 Intent intent = new Intent(this, CongratsScreen.class);
                 intent.putExtra("EXTRA_SCORE", mainScore);
                 startActivity(intent);
             }, 1000);
-            return overLeft = 0f;
+            return ballsLeft = 0;
         } else
-            return overLeft;
+            return ballsLeft;
     }
 
     private void setVideoOff() {
@@ -144,8 +150,10 @@ public class ScoreBoardScreen extends AppCompatActivity {
 
     private void setValues() {
         binding.textViewName.setText(SharedPreferencesHandler.getStringValues(this, KEY_NAME).trim());
-        binding.textViewOver.setText(String.format("%.2f", SharedPreferencesHandler.getFloatValues(this, KEY_OVER)));
-        overs = Float.parseFloat(binding.textViewOver.getText().toString());
-        overLeft = overs;
+        binding.textViewScore.setText(SharedPreferencesHandler.getIntValues(this, KEY_CHALLENGE)+"");
+        scoreLeft = SharedPreferencesHandler.getIntValues(this, KEY_CHALLENGE);
+        ballsLeft = (int) (SharedPreferencesHandler.getFloatValues(this, KEY_OVER) * 6);
+        binding.textViewBalls.setText(ballsLeft+"");
+        binding.textViewUrScr.setText("0");
     }
 }

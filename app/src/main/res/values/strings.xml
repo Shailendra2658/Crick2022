@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Cricket2022</string>
+    <string name="error_msg_name">Name cannot be empty!</string>
+    <string name="error_msg_over">Over cannot be empty!</string>
+    <string name="error_zero_msg_over">Over cannot be zero!</string>
+    <string name="error_msg_chal">Enter valid score!</string>
+    <string name="error_zero_msg_chal">Score cannot be zero!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="message_need_permission">Ask for permissions</string>
+    <string name="message_permission">Permission</string>
+    <string name="title_go_to_setting">Go to setting</string>
+    <string name="play_stop">Stop</string>
+
 </resources>
