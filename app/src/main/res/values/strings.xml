@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cricket2022</string>
+    <string name="app_name">CrickSimple</string>
     <string name="error_msg_name">Name cannot be empty!</string>
     <string name="error_msg_over">Over cannot be empty!</string>
     <string name="error_zero_msg_over">Over cannot be zero!</string>

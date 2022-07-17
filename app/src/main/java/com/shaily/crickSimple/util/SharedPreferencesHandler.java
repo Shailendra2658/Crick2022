@@ -14,7 +14,13 @@ public class SharedPreferencesHandler {
 	public static String KEY_CHALLENGE = "KEY_CHALLENGE";
 	public static String KEY_URI = "KEY_URI";
 	public static String KEY_CUSTOM_URI = "KEY_CUSTOM_URI";
-
+	public static String KEY_ZERO_URI = "KEY_ZERO_URI";
+	public static String KEY_ONE_URI = "KEY_ONE_URI";
+	public static String KEY_TWO_URI = "KEY_TWO_URI";
+	public static String KEY_FOUR_URI = "KEY_FOUR_URI";
+	public static String KEY_SIX_URI = "KEY_SIX_URI";
+	public static String KEY_OUT_URI = "KEY_OUT_URI";
+	public static String KEY_WIDE_URI = "KEY_WIDE_URI";
 
 
 	public enum Modes{

@@ -1,17 +1,27 @@
 package com.shaily.crickSimple;
 
+import static com.shaily.crickSimple.util.SharedPreferencesHandler.KEY_FOUR_URI;
+import static com.shaily.crickSimple.util.SharedPreferencesHandler.KEY_ONE_URI;
+import static com.shaily.crickSimple.util.SharedPreferencesHandler.KEY_OUT_URI;
+import static com.shaily.crickSimple.util.SharedPreferencesHandler.KEY_SIX_URI;
+import static com.shaily.crickSimple.util.SharedPreferencesHandler.KEY_TWO_URI;
+import static com.shaily.crickSimple.util.SharedPreferencesHandler.KEY_URI;
+import static com.shaily.crickSimple.util.SharedPreferencesHandler.KEY_WIDE_URI;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.RadioGroup;
 
 import com.shaily.crickSimple.databinding.ActivitySelectBowlerBinding;
+import com.shaily.crickSimple.util.SharedPreferencesHandler;
 
 
 public class SelectBowler extends AppCompatActivity {
@@ -26,6 +36,24 @@ public class SelectBowler extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_select_bowler);
 
+        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/Videos/bowl.mp4";
+        String fileSixPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/Videos/six.mp4";
+        String fileFourPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/Videos/four.mp4";
+        String fileTwoPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/Videos/two.mp4";
+        String fileOnePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/Videos/one.mp4";
+        String fileOutPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/Videos/out.mp4";
+        String fileWidePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/Videos/wide.mp4";
+
+
+        SharedPreferencesHandler.setStringValues(SelectBowler.this, KEY_URI, filePath);
+        SharedPreferencesHandler.setStringValues(SelectBowler.this, KEY_SIX_URI, fileSixPath);
+        SharedPreferencesHandler.setStringValues(SelectBowler.this, KEY_FOUR_URI, fileFourPath);
+        SharedPreferencesHandler.setStringValues(SelectBowler.this, KEY_TWO_URI, fileTwoPath);
+        SharedPreferencesHandler.setStringValues(SelectBowler.this, KEY_ONE_URI, fileOnePath);
+        SharedPreferencesHandler.setStringValues(SelectBowler.this, KEY_OUT_URI, fileOutPath);
+        SharedPreferencesHandler.setStringValues(SelectBowler.this, KEY_WIDE_URI, fileWidePath);
+
+
         selectBowler(binding.bowller1, getDrawable(R.drawable.ones), getDrawable(R.drawable.one));
         selectBowler(binding.bowller2, getDrawable(R.drawable.twos), getDrawable(R.drawable.two));
         selectBowler(binding.bowller3, getDrawable(R.drawable.threes), getDrawable(R.drawable.three));
@@ -37,10 +65,11 @@ public class SelectBowler extends AppCompatActivity {
         {
             public void onCheckedChanged(RadioGroup paramAnonymousRadioGroup, int paramAnonymousInt)
             {
-                Intent intent = new Intent(SelectBowler.this, RecordBowling.class);
+                Intent intent = new Intent(SelectBowler.this, EnterName.class);
                 startActivity(intent);
             }
         });
+
     }
 
     private void selectBowler(CheckBox bowler, Drawable selected, Drawable UnSelected) {
