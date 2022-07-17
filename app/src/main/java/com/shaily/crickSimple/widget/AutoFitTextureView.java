@@ -1,4 +1,4 @@
-package com.shaily.cricket2022.widget;
+package com.shaily.crickSimple.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.TextureView;

@@ -1,4 +1,4 @@
-package com.shaily.cricket2022.util;
+package com.shaily.crickSimple.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;

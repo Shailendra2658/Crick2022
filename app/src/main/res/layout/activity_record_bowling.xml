@@ -122,7 +122,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fooFragment"
-            android:name="com.shaily.cricket2022.fragment.CameraFragment"
+            android:name="com.shaily.crickSimple.fragment.CameraFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"/>

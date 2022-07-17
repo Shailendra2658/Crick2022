@@ -1,7 +1,6 @@
-package com.shaily.cricket2022;
+package com.shaily.crickSimple;
 
-import static com.shaily.cricket2022.util.SharedPreferencesHandler.KEY_CUSTOM_URI;
-import static com.shaily.cricket2022.util.SharedPreferencesHandler.KEY_URI;
+import static com.shaily.crickSimple.util.SharedPreferencesHandler.KEY_URI;
 
 import android.Manifest;
 import android.content.Context;
@@ -15,7 +14,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
@@ -25,13 +23,12 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.bumptech.glide.Glide;
-import com.shaily.cricket2022.databinding.ActivityRecordBowlingBinding;
-import com.shaily.cricket2022.util.SharedPreferencesHandler;
+import com.shaily.crickSimple.databinding.ActivityRecordBowlingBinding;
+import com.shaily.crickSimple.util.SharedPreferencesHandler;
 
 import java.io.File;
 import java.io.FileInputStream;

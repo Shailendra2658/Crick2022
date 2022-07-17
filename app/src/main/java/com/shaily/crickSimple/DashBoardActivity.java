@@ -1,8 +1,7 @@
-package com.shaily.cricket2022;
+package com.shaily.crickSimple;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -19,7 +18,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.shaily.cricket2022.databinding.ActivityMainBinding;
+import com.shaily.crickSimple.databinding.ActivityMainBinding;
 
 public class DashBoardActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";

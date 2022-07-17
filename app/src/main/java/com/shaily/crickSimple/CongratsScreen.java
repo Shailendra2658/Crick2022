@@ -1,17 +1,15 @@
-package com.shaily.cricket2022;
+package com.shaily.crickSimple;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
-import android.widget.ViewFlipper;
 
-import com.shaily.cricket2022.databinding.ActivityCongratsScreenBinding;
+import com.shaily.crickSimple.databinding.ActivityCongratsScreenBinding;
 
 public class CongratsScreen extends AppCompatActivity {
     private static final String TAG = "CongratsScreen";

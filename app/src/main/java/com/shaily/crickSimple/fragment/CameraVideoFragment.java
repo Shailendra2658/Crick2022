@@ -1,4 +1,4 @@
-package com.shaily.cricket2022.fragment;
+package com.shaily.crickSimple.fragment;
 
 import android.Manifest;
 import android.app.Activity;
@@ -31,15 +31,14 @@ import android.util.SparseIntArray;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
-import com.shaily.cricket2022.R;
-import com.shaily.cricket2022.widget.AutoFitTextureView;
+import com.shaily.crickSimple.R;
+import com.shaily.crickSimple.widget.AutoFitTextureView;
 
 import java.io.File;
 import java.io.IOException;

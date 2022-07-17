@@ -1,4 +1,4 @@
-package com.shaily.cricket2022.fragment;
+package com.shaily.crickSimple.fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +10,9 @@ import android.widget.VideoView;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import com.shaily.cricket2022.R;
-import com.shaily.cricket2022.databinding.FragmentCameraBinding;
-import com.shaily.cricket2022.widget.AutoFitTextureView;
+import com.shaily.crickSimple.R;
+import com.shaily.crickSimple.databinding.FragmentCameraBinding;
+import com.shaily.crickSimple.widget.AutoFitTextureView;
 
 /**
  * A simple {@link Fragment} subclass.

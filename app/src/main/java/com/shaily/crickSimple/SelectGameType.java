@@ -1,6 +1,6 @@
-package com.shaily.cricket2022;
+package com.shaily.crickSimple;
 
-import static com.shaily.cricket2022.util.SharedPreferencesHandler.KEY_OVER;
+import static com.shaily.crickSimple.util.SharedPreferencesHandler.KEY_OVER;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.shaily.cricket2022.databinding.ActivitySelectGameTypeBinding;
-import com.shaily.cricket2022.util.SharedPreferencesHandler;
+import com.shaily.crickSimple.databinding.ActivitySelectGameTypeBinding;
+import com.shaily.crickSimple.util.SharedPreferencesHandler;
 
 public class SelectGameType extends AppCompatActivity {
     private static final String TAG = "SelectGameType";

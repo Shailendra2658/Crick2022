@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shaily.cricket2022">
+    package="com.shaily.crickSimple">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -25,47 +25,47 @@
                 android:resource="@xml/provider_paths"/>
         </provider>
         <activity
-            android:name=".RecordBowling"
+            android:name="com.shaily.crickSimple.RecordBowling"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".SelectGameType"
+            android:name="com.shaily.crickSimple.SelectGameType"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".ChallengeScreen"
+            android:name="com.shaily.crickSimple.ChallengeScreen"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".SelectChallenge"
+            android:name="com.shaily.crickSimple.SelectChallenge"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".CongratsScreen"
+            android:name="com.shaily.crickSimple.CongratsScreen"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".ScoreBoardScreen"
+            android:name="com.shaily.crickSimple.ScoreBoardScreen"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".EnterOvers"
+            android:name="com.shaily.crickSimple.EnterOvers"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".EnterName"
+            android:name="com.shaily.crickSimple.EnterName"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".SelectBowler"
+            android:name="com.shaily.crickSimple.SelectBowler"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".DashBoardActivity"
+            android:name="com.shaily.crickSimple.DashBoardActivity"
             android:exported="true"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.shaily.crickSimple.SplashScreen"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="landscape">

@@ -1,6 +1,6 @@
-package com.shaily.cricket2022;
+package com.shaily.crickSimple;
 
-import static com.shaily.cricket2022.util.SharedPreferencesHandler.KEY_NAME;
+import static com.shaily.crickSimple.util.SharedPreferencesHandler.KEY_NAME;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -14,9 +14,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.shaily.cricket2022.databinding.ActivityEnterNameBinding;
-import com.shaily.cricket2022.databinding.ActivitySelectBowlerBinding;
-import com.shaily.cricket2022.util.SharedPreferencesHandler;
+import com.shaily.crickSimple.databinding.ActivityEnterNameBinding;
+import com.shaily.crickSimple.databinding.ActivitySelectBowlerBinding;
+import com.shaily.crickSimple.util.SharedPreferencesHandler;
 
 public class EnterName extends AppCompatActivity {
     private static final String TAG = "EnterName";

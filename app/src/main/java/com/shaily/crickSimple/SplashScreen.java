@@ -1,4 +1,4 @@
-package com.shaily.cricket2022;
+package com.shaily.crickSimple;
 
 
 import android.app.Activity;

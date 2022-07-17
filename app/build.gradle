@@ -6,7 +6,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.shaily.cricket2022"
+        applicationId "com.shaily.cricksimple"
         minSdk 21
         targetSdk 33
         versionCode 1
