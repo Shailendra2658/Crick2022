@@ -9,11 +9,14 @@ import androidx.databinding.DataBindingUtil;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -22,9 +25,16 @@ import com.shaily.crickSimple.databinding.ActivityMainBinding;
 
 public class DashBoardActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+    // Intent request codes
+    public static final int REQUEST_CONNECT_DEVICE = 1;
+    public static final int REQUEST_ENABLE_BT = 2;
+
     private ActivityMainBinding binding;
     private static final int CODE_CAM_PER = 101;
     private static final String CODE_STORAGE_PER = "STORAGE";
+    // Local Bluetooth adapter
+    private BluetoothAdapter mBluetoothAdapter = null;
+    private PowerManager.WakeLock mWakeLock;
 
     private String[] permissionList = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
@@ -36,13 +46,65 @@ public class DashBoardActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        //Bluetooth connections
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        mWakeLock = ((PowerManager) getSystemService(Context.POWER_SERVICE))
+                .newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, getClass().getName());
+        mWakeLock.acquire();
+
+        // If the adapter is null, then Bluetooth is not supported
+        if (mBluetoothAdapter == null) {
+            Toast.makeText(this, "Bluetooth is not available", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
+
         binding.start.setOnClickListener(view -> {
 
-            if ( checkForPermission(permissionList))
+            if (checkForPermission(permissionList))
                 // Permission is granted. Continue the action or workflow in your
                 // app.
                 startActivity(new Intent(DashBoardActivity.this, SelectBowler.class));
         });
+
+        binding.setting.setOnClickListener(view -> {
+            startActivity(new Intent(DashBoardActivity.this, DeviceListActivity.class));
+
+        });
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (mBluetoothAdapter != null) {
+            if (!mBluetoothAdapter.isEnabled()) {
+                Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+            } else {
+                //if (mChatService == null) setupChat();
+            }
+        }
+    }
+
+    private void ensureDiscoverable() {
+        if (mBluetoothAdapter.getScanMode() !=
+                BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
+            Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+            discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
+            startActivity(discoverableIntent);
+        }
     }
 
     private void requestPermission() {
