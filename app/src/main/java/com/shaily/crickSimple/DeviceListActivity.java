@@ -29,6 +29,8 @@ import java.util.Set;
 public class DeviceListActivity extends AppCompatActivity {
     // Return Intent extra
     public static String EXTRA_DEVICE_ADDRESS = "device_address";
+    public static String ADDRESS = "";
+
     // Member fields
     private BluetoothAdapter mBtAdapter;
     private ArrayAdapter mPairedDevicesArrayAdapter;
@@ -175,6 +177,7 @@ public class DeviceListActivity extends AppCompatActivity {
             // Create the result Intent and include the MAC address
             Intent intent = new Intent(DeviceListActivity.this,DashBoardActivity.class);
             intent.putExtra(EXTRA_DEVICE_ADDRESS, address);
+            ADDRESS = address;
             // Set result and finish this Activity
             setResult(Activity.RESULT_OK, intent);
             finish();
